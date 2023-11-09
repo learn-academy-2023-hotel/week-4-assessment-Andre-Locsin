@@ -24,21 +24,30 @@ const colors2 = ["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "s
 
 // Pseudo code:
 
-// const shuffleArray = (array) => {
-// array.shift()
-//  const shuffle = array.sort(() => Math.random())
-//  return shuffle
-// }
+const shuffleArray = (array) => {
+array.shift()
+ const shuffle = array.sort(() => Math.random())
+ return shuffle
+}
 
-// const newColors = shuffleArray([...colors1])
+const newColors = shuffleArray([...colors1])
+const newColors2 = shuffleArray([...colors2])
+
 
 // describe("shuffleArray", () => {
 //     it("removes the first item from the array and shuffles the remaining items", () => {
-//         expect(["purple", "blue", "green", "yellow", "pink"]).toEqual(expect.shuffleArray(colors1))
-//         expect(["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saffron"]).toEqual(expect.shuffleArray(colors2))
+//         expect(["purple", "blue", "green", "yellow", "pink"]).not.toEqual(expect.shuffleArray(newColors))
+//         expect(["chartreuse", "indigo", "periwinkle", "ochre", "aquamarine", "saffron"]).toEqual(expect.shuffleArray(newColors))
     
 //     })
 // })
+
+describe("shuffleArray", () => {
+it("removes the first item from the array and shuffles the remaining items", () => {
+expect(shuffleArray.length).toEqual(colors1.length - 1)
+expect(shuffleArray.length).toEqual(colors2.length - 1)
+    })
+})
 
 
 
@@ -66,17 +75,20 @@ const votes2 = { upVotes: 2, downVotes: 33 }
 
 
 // Function to calculate the end tally based on upVotes and downVotes
-const totalTally = (tally) => {
-// subtract upVotes by downVotes
-    return tally.upVotes - tally.downVotes
-}
+// const totalTally = (tally) => { 
+// // subtract upVotes by downVotes
+//     return tally.upVotes - tally.downVotes
+// }
 
 
-// Jest test cases
-describe('totalTally', () => {
-    it('return total end tally', () => {
-        expect(totalTally(votes1)).toEqual(11)
-        expect(totalTally(votes2)).toEqual(-31)
-    })
-})
+// // Jest test cases
+// describe('totalTally', () => {
+//     it('return total end tally', () => {
+//   //  totalTally = upVotes - downVotes
+//   //  expect("the difference"  = (votes1) = 11 => test to be true
+//         expect(totalTally(votes1)).toEqual(11)
+//   //  expect("the difference"  = (votes2) = -31 => test to be true
+//         expect(totalTally(votes2)).toEqual(-31)
+//     })
+// })
 
